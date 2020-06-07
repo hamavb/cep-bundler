@@ -11,7 +11,7 @@ import debugTemplate from "./templates/debug";
 import { execSync, spawn } from "child_process";
 import * as browserify from "browserify";
 import * as budo from "budo";
-import { copyAndReplace, rmrf, mkdirp, cp, cpr, symlinkDir } from "./utils";
+import { rmrf, mkdirp, cp, cpr, symlinkDir } from "./utils";
 import * as syncFiles from "sync-files";
 
 async function build(opts) {
@@ -147,7 +147,10 @@ function clean(opts) {
 function createManifest(opts) {
   console.log("-> createManifest");
   mkdirp(opts.paths.manifestDir);
-  writeFileSync(opts.paths.manifestFile, manifestTemplate(opts));
+  writeFileSync(
+    opts.paths.manifestFile,
+    (opts.manifestTemplate || manifestTemplate)(opts)
+  );
 }
 
 function createHtml(opts) {

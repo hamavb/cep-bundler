@@ -1,6 +1,6 @@
 {
   "name": "@hamavb/cep-bundler",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "description": "Packager for CEP extensions with TypeScript and Browserify + Live reloading & HMR",
   "main": "lib/index.js",
   "dependencies": {
